@@ -1,0 +1,92 @@
+.pricing-card {
+    flex: 1;
+    background-color: #1f262c;
+    padding: 30px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border: 2px solid transparent;
+    transition: 0.2s ease;
+}
+
+.pricing-card:hover {
+    border: 2px solid #cbe300;
+}
+
+.pricing-card--destaque {
+    border: 2px solid #cbe300;
+}
+
+.pricing-card__badge {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #cbe300;
+    color: #0c1014;
+    padding: 4px 16px;
+    border-radius: 20px;
+    font-size: 0.8em;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.pricing-card__nome {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 2px solid #cbe300;
+    padding-bottom: 10px;
+    margin-top: 10px;
+    color: white;
+}
+
+.pricing-card__descricao {
+    color: #b5b5b5;
+    font-size: 0.9em;
+    margin: 0 0 16px 0;
+}
+
+.pricing-card__preco {
+    color: #b5b5b5;
+    font-size: 1em;
+    margin: 0 0 20px 0;
+}
+
+.pricing-card__valor {
+    font-size: 2.2em;
+    font-weight: 700;
+    color: white;
+}
+
+.pricing-card__features {
+    flex: 1; 
+    color: #b5b5b5;
+    padding-left: 16px;
+    line-height: 1.8;
+    margin: 0 0 30px 0;
+}
+
+.pricing-card__features li::marker {
+    color: #cbe300;
+}
+
+.pricing-card__cta {
+    background-color: #cbe300;
+    color: #0c1014;
+    border: 2px solid transparent;
+    padding: 14px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.2s ease;
+    width: 100%;
+}
+
+.pricing-card__cta:hover {
+    background-color: transparent;
+    border: 2px solid #cbe300;
+    color: white;
+}

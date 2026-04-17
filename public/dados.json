@@ -1,0 +1,62 @@
+{
+    "planos": [
+        {
+        "id": 1,
+        "nome": "Essencial",
+        "preco" : 3.95,
+        "descricao": "Ideal para começar",
+        "features": [
+            "1 Website",
+            "1GB de Armazenamento",
+            "10GB de transferência",
+            "SSL gratuito"
+        ],
+        "destaque": false,
+        "tipo": "servidor"
+},
+{
+    "id": 2,
+    "nome": "Premium",
+    "preco": 7.95,
+    "descricao": "Para projetos em crescimento",
+    "features": [
+        "5 Websites",
+        "3GB de Armazenamento",
+        "Trasnferência ilimitada",
+        "10 horas de suporte mensais"
+    ],
+    "destaque":true,
+    "tipo": "servidor"
+},
+{
+    "id": 3,
+    "nome": "Gold",
+    "preco": 13.95,
+    "descricao": "Para empresas exigentes",
+    "features":[
+        "10 Websites",
+        "30GB de Armazenamento",
+        "Trasnferência ilimitada",
+        "30 horas de suporte mensais",
+        "Email personalizado"
+    ],
+    "destaque":false,
+    "tipo": "servidor"
+},
+{
+    "id":4,
+    "nome": "Platinum",
+    "preco": 18.95,
+    "descricao": "Completo para pessoas exigentes",
+    "features":[
+        "15 Websites",
+        "50GB de Armazenamento",
+        "Trasnferência ilimitada",
+        "Suporte Ilimitado",
+        "Email personalizado",
+        "Tokens Limitados para agente IA"
+    ],
+    "destaque":false,
+    "tipo": "servidor"
+}]
+}

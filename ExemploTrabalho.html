@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyServer</title>
+    <style>
+        * { box-sizing: border-box; }
+
+        body {
+            background-color: #0c1014;
+            color: white;
+            margin: 0;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .site-wrapper {
+            width: 90%;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        /* HEADER */
+        .header {
+            display: flex;
+            background-color: #05080a;
+            padding: 16px;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .header__logo {
+            font-size: 36px;
+            text-transform: uppercase;
+            margin-left: 16px;
+            cursor: pointer;
+        }
+
+        .header__nav ul {
+            display: flex;
+            list-style: none;
+            font-size: 18px;
+            gap: 16px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header__nav a {
+            color: white;
+            text-decoration: none;
+            padding: 14px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .header__nav a:hover {
+            text-decoration: underline;
+        }
+
+        a.header__nav--active {
+            background-color: #cbe300;
+            color: #0c1014;
+            pointer-events: none;
+        }
+
+        /* PAGES */
+        .page { display: none; }
+        .page.active { display: block; }
+
+        /* MAIN TITLE */
+        .main-title {
+            font-size: 62px;
+            text-align: center;
+            text-transform: uppercase;
+            margin: 46px 0;
+            letter-spacing: 2px;
+        }
+
+        /* PRICING */
+        .pricing {
+            display: flex;
+            gap: 16px;
+        }
+
+        .pricing-plan {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            background-color: #1f262c;
+            padding: 30px;
+            border-radius: 6px;
+            box-shadow: 0 5px 15px -6px black;
+        }
+
+        .pricing-plan__title {
+            text-transform: uppercase;
+            border-bottom: 2px solid #cbe300;
+            margin-top: 0;
+            padding-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .pricing-plan__cta {
+            background-color: #cbe300;
+            color: #0c1014;
+            text-transform: uppercase;
+            padding: 16px 10px;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 16px;
+            text-align: center;
+            border: 2px solid transparent;
+            cursor: pointer;
+            display: block;
+        }
+
+        .pricing-plan__cta:hover {
+            border: 2px solid #cbe300;
+            background-color: transparent;
+            color: white;
+        }
+
+        .pricing-plan p { margin-top: 0; }
+
+        .pricig-plan__price { font-size: 34px; }
+
+        .pricing-plan__features {
+            margin: 0 0 35px;
+            color: #b5b5b5;
+            padding-left: 16px;
+            line-height: 1.8;
+            flex: 1;
+        }
+
+        .pricing-plan__features li::marker { color: #cbe300; }
+
+        /* HOME PAGE */
+        .hero {
+            text-align: center;
+            padding: 80px 20px 60px;
+        }
+
+        .hero h1 {
+            font-size: 62px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 0 0 20px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #b5b5b5;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+
+        .hero__cta {
+            background-color: #cbe300;
+            color: #0c1014;
+            text-transform: uppercase;
+            padding: 18px 40px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 18px;
+            text-decoration: none;
+            border: 2px solid transparent;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .hero__cta:hover {
+            background-color: transparent;
+            color: white;
+            border: 2px solid #cbe300;
+        }
+
+        .features {
+            display: flex;
+            gap: 24px;
+            padding: 40px 0 80px;
+        }
+
+        .feature-card {
+            flex: 1;
+            background-color: #1f262c;
+            padding: 30px;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .feature-card__icon {
+            font-size: 40px;
+            margin-bottom: 16px;
+        }
+
+        .feature-card h3 {
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #cbe300;
+            margin: 0 0 10px;
+        }
+
+        .feature-card p {
+            color: #b5b5b5;
+            line-height: 1.6;
+            margin: 0;
+            font-size: 14px;
+        }
+
+        /* CONTACT PAGE */
+        .contact-grid {
+            display: flex;
+            gap: 40px;
+            padding: 20px 0 80px;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-info h2 {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 2px solid #cbe300;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        .contact-info p {
+            color: #b5b5b5;
+            line-height: 1.8;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 16px 0;
+            color: #b5b5b5;
+        }
+
+        .contact-item__icon {
+            font-size: 22px;
+        }
+
+        .contact-form-wrapper {
+            flex: 1.5;
+            background-color: #1f262c;
+            padding: 30px;
+            border-radius: 6px;
+        }
+
+        .contact-form-wrapper h2 {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 2px solid #cbe300;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        /* FORMS */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #b5b5b5;
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            background-color: #0c1014;
+            border: 1px solid #2e3940;
+            color: white;
+            padding: 12px 16px;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 15px;
+            transition: border-color 0.2s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #cbe300;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-group select option {
+            background-color: #1f262c;
+        }
+
+        .btn-submit {
+            background-color: #cbe300;
+            color: #0c1014;
+            text-transform: uppercase;
+            padding: 16px 30px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 16px;
+            border: 2px solid transparent;
+            cursor: pointer;
+            width: 100%;
+            font-family: inherit;
+            letter-spacing: 1px;
+            transition: all 0.2s;
+        }
+
+        .btn-submit:hover {
+            background-color: transparent;
+            border: 2px solid #cbe300;
+            color: white;
+        }
+
+        /* SIGNUP FORM (plan acquisition) */
+        .signup-wrapper {
+            max-width: 560px;
+            margin: 0 auto;
+            padding: 20px 0 80px;
+        }
+
+        .signup-card {
+            background-color: #1f262c;
+            padding: 40px;
+            border-radius: 6px;
+            box-shadow: 0 5px 15px -6px black;
+        }
+
+        .signup-card h2 {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 2px solid #cbe300;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        .plan-badge {
+            display: inline-block;
+            background-color: #cbe300;
+            color: #0c1014;
+            padding: 4px 14px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+        }
+
+        /* SUCCESS MESSAGE */
+        .success-msg {
+            display: none;
+            background-color: #1a2e10;
+            border: 1px solid #cbe300;
+            border-radius: 6px;
+            padding: 20px 24px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .success-msg .success-icon { font-size: 36px; margin-bottom: 8px; }
+        .success-msg h3 { color: #cbe300; margin: 0 0 8px; text-transform: uppercase; letter-spacing: 1px; }
+        .success-msg p { color: #b5b5b5; margin: 0; font-size: 14px; }
+
+        /* DB TABLE */
+        .db-section {
+            padding: 20px 0 80px;
+        }
+
+        .db-section h2 {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 2px solid #cbe300;
+            padding-bottom: 10px;
+        }
+
+        .db-table-wrapper {
+            overflow-x: auto;
+            border-radius: 6px;
+        }
+
+        .db-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #1f262c;
+            font-size: 14px;
+        }
+
+        .db-table th {
+            background-color: #0c1014;
+            padding: 12px 16px;
+            text-align: left;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 12px;
+            color: #cbe300;
+            border-bottom: 2px solid #cbe300;
+        }
+
+        .db-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #2e3940;
+            color: #b5b5b5;
+        }
+
+        .db-table tr:hover td { background-color: #252d34; color: white; }
+
+        .db-empty {
+            text-align: center;
+            padding: 40px;
+            color: #4a5568;
+            font-size: 15px;
+        }
+
+        .badge-plan {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .badge-essencial { background-color: #1a2a3a; color: #6ab0de; }
+        .badge-premium { background-color: #2a1a3a; color: #c06ade; }
+        .badge-gold { background-color: #3a2a0a; color: #cbe300; }
+
+        .db-actions {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 16px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .btn-clear {
+            background: transparent;
+            border: 1px solid #e33;
+            color: #e33;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-clear:hover { background-color: #e33; color: white; }
+
+        .db-count { color: #b5b5b5; font-size: 14px; }
+
+        /* MOBILE */
+        @media (max-width: 700px) {
+            .pricing { flex-direction: column; }
+            .features { flex-direction: column; }
+            .contact-grid { flex-direction: column; }
+            .header__logo { font-size: 24px; }
+            .header__nav ul { font-size: 14px; gap: 4px; }
+            .header__nav a { padding: 8px; }
+            .main-title { font-size: 36px; }
+            .hero h1 { font-size: 36px; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="header__logo" onclick="navigate('home')">MyServer</div>
+    <nav class="header__nav">
+        <ul>
+            <li><a id="nav-home" href="#" onclick="navigate('home'); return false;" class="header__nav--active">Início</a></li>
+            <li><a id="nav-planos" href="#" onclick="navigate('planos'); return false;">Planos</a></li>
+            <li><a id="nav-contato" href="#" onclick="navigate('contato'); return false;">Contato</a></li>
+            <li><a id="nav-dados" href="#" onclick="navigate('dados'); return false;">Dados</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- ===================== HOME ===================== -->
+<div id="page-home" class="page active">
+    <div class="site-wrapper">
+        <div class="hero">
+            <h1>Hospedagem Rápida<br>e Confiável</h1>
+            <p>Servidores de alta performance para o seu negócio. Escolha o plano ideal e comece agora mesmo com total segurança.</p>
+            <a class="hero__cta" onclick="navigate('planos')">Ver Planos</a>
+        </div>
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-card__icon">⚡</div>
+                <h3>Alta Velocidade</h3>
+                <p>Infraestrutura otimizada para máxima performance com SSD NVMe e CDN global.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-card__icon">🔒</div>
+                <h3>Segurança Total</h3>
+                <p>SSL gratuito, backups diários automáticos e proteção DDoS incluídos em todos os planos.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-card__icon">🛠️</div>
+                <h3>Suporte 24/7</h3>
+                <p>Equipa técnica especializada disponível a qualquer hora para resolver os seus problemas.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ===================== PLANOS ===================== -->
+<div id="page-planos" class="page">
+    <div class="site-wrapper">
+        <h1 class="main-title">Escolha seu plano</h1>
+        <section class="pricing">
+            <div class="pricing-plan">
+                <h2 class="pricing-plan__title">Essencial</h2>
+                <p><span class="pricig-plan__price">R$ 3.95</span> / mês</p>
+                <ul class="pricing-plan__features">
+                    <li>1 Website</li>
+                    <li>1GB de Armazenamento</li>
+                    <li>10GB de transferência</li>
+                </ul>
+                <a class="pricing-plan__cta" onclick="openSignup('Essencial', 'R$ 3.95')">Assine Já</a>
+            </div>
+            <div class="pricing-plan">
+                <h2 class="pricing-plan__title">Premium</h2>
+                <p><span class="pricig-plan__price">R$ 7.95</span> / mês</p>
+                <ul class="pricing-plan__features">
+                    <li>5 Websites</li>
+                    <li>3GB de Armazenamento</li>
+                    <li>Transferência ilimitada</li>
+                    <li>10 horas de suporte mensais</li>
+                </ul>
+                <a class="pricing-plan__cta" onclick="openSignup('Premium', 'R$ 7.95')">Assine Já</a>
+            </div>
+            <div class="pricing-plan">
+                <h2 class="pricing-plan__title">Gold</h2>
+                <p><span class="pricig-plan__price">R$ 13.95</span> / mês</p>
+                <ul class="pricing-plan__features">
+                    <li>10 Websites</li>
+                    <li>30GB de Armazenamento</li>
+                    <li>Transferência ilimitada</li>
+                    <li>30 horas de suporte mensais</li>
+                    <li>Email personalizado</li>
+                </ul>
+                <a class="pricing-plan__cta" onclick="openSignup('Gold', 'R$ 13.95')">Assine Já</a>
+            </div>
+        </section>
+        <div style="height: 60px;"></div>
+    </div>
+</div>
+
+<!-- ===================== SIGNUP (AQUISIÇÃO) ===================== -->
+<div id="page-signup" class="page">
+    <div class="site-wrapper">
+        <h1 class="main-title">Assinar Plano</h1>
+        <div class="signup-wrapper">
+            <div class="signup-card">
+                <h2>Dados para Contratação</h2>
+                <div class="plan-badge" id="signup-plan-badge">Essencial</div>
+                <p id="signup-plan-price" style="color:#b5b5b5; margin-top:-10px; margin-bottom:24px; font-size:14px;">R$ 3.95 / mês</p>
+
+                <div class="form-group">
+                    <label>Nome Completo *</label>
+                    <input type="text" id="signup-nome" placeholder="O seu nome completo">
+                </div>
+                <div class="form-group">
+                    <label>Email *</label>
+                    <input type="email" id="signup-email" placeholder="email@exemplo.com">
+                </div>
+                <div class="form-group">
+                    <label>Telefone</label>
+                    <input type="tel" id="signup-tel" placeholder="+351 900 000 000">
+                </div>
+                <div class="form-group">
+                    <label>NIF / CNPJ</label>
+                    <input type="text" id="signup-nif" placeholder="Número de identificação fiscal">
+                </div>
+                <div class="form-group">
+                    <label>Domínio desejado (opcional)</label>
+                    <input type="text" id="signup-dominio" placeholder="meusite.com">
+                </div>
+                <div class="form-group">
+                    <label>Forma de Pagamento *</label>
+                    <select id="signup-pagamento">
+                        <option value="">Selecione...</option>
+                        <option>Cartão de Crédito</option>
+                        <option>Boleto / Referência MB</option>
+                        <option>PayPal</option>
+                        <option>Transferência Bancária</option>
+                    </select>
+                </div>
+
+                <button class="btn-submit" onclick="submitSignup()">Confirmar Assinatura</button>
+                <button style="width:100%; margin-top:10px; background:transparent; border:1px solid #2e3940; color:#b5b5b5; padding:12px; border-radius:6px; cursor:pointer; font-family:inherit; font-size:14px;" onclick="navigate('planos')">← Voltar aos Planos</button>
+
+                <div class="success-msg" id="signup-success">
+                    <div class="success-icon">✅</div>
+                    <h3>Assinatura Registada!</h3>
+                    <p>Os seus dados foram guardados. Entraremos em contacto em breve.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ===================== CONTATO ===================== -->
+<div id="page-contato" class="page">
+    <div class="site-wrapper">
+        <h1 class="main-title">Contato</h1>
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h2>Fale Connosco</h2>
+                <p>Tem dúvidas ou precisa de ajuda? A nossa equipa está disponível para o ajudar de segunda a sexta, das 9h às 18h.</p>
+                <div class="contact-item">
+                    <span class="contact-item__icon">📧</span>
+                    <span>suporte@myserver.pt</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-item__icon">📞</span>
+                    <span>+351 210 000 000</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-item__icon">📍</span>
+                    <span>Lisboa, Portugal</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-item__icon">🕐</span>
+                    <span>Seg–Sex: 9h–18h</span>
+                </div>
+            </div>
+            <div class="contact-form-wrapper">
+                <h2>Enviar Mensagem</h2>
+                <div class="form-group">
+                    <label>Nome *</label>
+                    <input type="text" id="contact-nome" placeholder="O seu nome">
+                </div>
+                <div class="form-group">
+                    <label>Email *</label>
+                    <input type="email" id="contact-email" placeholder="email@exemplo.com">
+                </div>
+                <div class="form-group">
+                    <label>Assunto *</label>
+                    <select id="contact-assunto">
+                        <option value="">Selecione o assunto...</option>
+                        <option>Dúvida Geral</option>
+                        <option>Suporte Técnico</option>
+                        <option>Faturação</option>
+                        <option>Cancelamento</option>
+                        <option>Parceria</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Mensagem *</label>
+                    <textarea id="contact-mensagem" placeholder="Descreva a sua questão..."></textarea>
+                </div>
+                <button class="btn-submit" onclick="submitContact()">Enviar Mensagem</button>
+                <div class="success-msg" id="contact-success">
+                    <div class="success-icon">✅</div>
+                    <h3>Mensagem Enviada!</h3>
+                    <p>Recebemos o seu contacto. Responderemos em até 24 horas.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ===================== DADOS (BD) ===================== -->
+<div id="page-dados" class="page">
+    <div class="site-wrapper">
+        <h1 class="main-title">Base de Dados</h1>
+
+        <div class="db-section">
+            <div class="db-actions">
+                <h2 style="margin:0; border:none; padding:0;">📋 Assinaturas</h2>
+                <div style="display:flex; align-items:center; gap:12px;">
+                    <span class="db-count" id="signup-count">0 registos</span>
+                    <button class="btn-clear" onclick="clearDB('signups')">Limpar</button>
+                </div>
+            </div>
+            <div class="db-table-wrapper">
+                <table class="db-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nome</th>
+                            <th>Email</th>
+                            <th>Plano</th>
+                            <th>Pagamento</th>
+                            <th>Data</th>
+                        </tr>
+                    </thead>
+                    <tbody id="signups-tbody">
+                        <tr><td colspan="6" class="db-empty">Nenhuma assinatura ainda.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="db-section">
+            <div class="db-actions">
+                <h2 style="margin:0; border:none; padding:0;">💬 Mensagens de Contacto</h2>
+                <div style="display:flex; align-items:center; gap:12px;">
+                    <span class="db-count" id="contact-count">0 registos</span>
+                    <button class="btn-clear" onclick="clearDB('contacts')">Limpar</button>
+                </div>
+            </div>
+            <div class="db-table-wrapper">
+                <table class="db-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nome</th>
+                            <th>Email</th>
+                            <th>Assunto</th>
+                            <th>Mensagem</th>
+                            <th>Data</th>
+                        </tr>
+                    </thead>
+                    <tbody id="contacts-tbody">
+                        <tr><td colspan="6" class="db-empty">Nenhuma mensagem ainda.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // ── Simple in-memory "database" (persisted via localStorage) ──
+    let db = {
+        signups: [],
+        contacts: []
+    };
+
+    function loadDB() {
+        try {
+            const saved = localStorage.getItem('myserver_db');
+            if (saved) db = JSON.parse(saved);
+        } catch(e) {}
+    }
+
+    function saveDB() {
+        try { localStorage.setItem('myserver_db', JSON.stringify(db)); } catch(e) {}
+    }
+
+    function clearDB(table) {
+        if (!confirm('Tem a certeza que quer apagar todos os registos?')) return;
+        db[table] = [];
+        saveDB();
+        renderDB();
+    }
+
+    // ── Navigation ──
+    function navigate(page) {
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+        document.querySelectorAll('.header__nav a').forEach(a => a.classList.remove('header__nav--active'));
+        document.getElementById('page-' + page).classList.add('active');
+        const navEl = document.getElementById('nav-' + page);
+        if (navEl) navEl.classList.add('header__nav--active');
+        if (page === 'dados') renderDB();
+        window.scrollTo(0, 0);
+    }
+
+    // ── Plans ──
+    let currentPlan = { name: '', price: '' };
+
+    function openSignup(planName, planPrice) {
+        currentPlan = { name: planName, price: planPrice };
+        document.getElementById('signup-plan-badge').textContent = planName;
+        document.getElementById('signup-plan-price').textContent = planPrice + ' / mês';
+        document.getElementById('signup-success').style.display = 'none';
+        ['signup-nome','signup-email','signup-tel','signup-nif','signup-dominio','signup-pagamento']
+            .forEach(id => { const el = document.getElementById(id); if(el) el.value = ''; });
+        navigate('signup');
+    }
+
+    function submitSignup() {
+        const nome = document.getElementById('signup-nome').value.trim();
+        const email = document.getElementById('signup-email').value.trim();
+        const pagamento = document.getElementById('signup-pagamento').value;
+        if (!nome || !email || !pagamento) {
+            alert('Por favor preencha todos os campos obrigatórios (*).');
+            return;
+        }
+        const record = {
+            id: Date.now(),
+            nome,
+            email,
+            tel: document.getElementById('signup-tel').value.trim(),
+            nif: document.getElementById('signup-nif').value.trim(),
+            dominio: document.getElementById('signup-dominio').value.trim(),
+            plano: currentPlan.name,
+            preco: currentPlan.price,
+            pagamento,
+            data: new Date().toLocaleString('pt-PT')
+        };
+        db.signups.push(record);
+        saveDB();
+        document.getElementById('signup-success').style.display = 'block';
+    }
+
+    function submitContact() {
+        const nome = document.getElementById('contact-nome').value.trim();
+        const email = document.getElementById('contact-email').value.trim();
+        const assunto = document.getElementById('contact-assunto').value;
+        const mensagem = document.getElementById('contact-mensagem').value.trim();
+        if (!nome || !email || !assunto || !mensagem) {
+            alert('Por favor preencha todos os campos obrigatórios (*).');
+            return;
+        }
+        const record = {
+            id: Date.now(),
+            nome, email, assunto, mensagem,
+            data: new Date().toLocaleString('pt-PT')
+        };
+        db.contacts.push(record);
+        saveDB();
+        document.getElementById('contact-success').style.display = 'block';
+        document.getElementById('contact-nome').value = '';
+        document.getElementById('contact-email').value = '';
+        document.getElementById('contact-assunto').value = '';
+        document.getElementById('contact-mensagem').value = '';
+    }
+
+    // ── Render DB tables ──
+    function renderDB() {
+        // Signups
+        const stbody = document.getElementById('signups-tbody');
+        document.getElementById('signup-count').textContent = db.signups.length + ' registo(s)';
+        if (db.signups.length === 0) {
+            stbody.innerHTML = '<tr><td colspan="6" class="db-empty">Nenhuma assinatura ainda.</td></tr>';
+        } else {
+            stbody.innerHTML = db.signups.map((r, i) => `
+                <tr>
+                    <td>${i+1}</td>
+                    <td>${r.nome}</td>
+                    <td>${r.email}</td>
+                    <td><span class="badge-plan badge-${r.plano.toLowerCase()}">${r.plano}</span></td>
+                    <td>${r.pagamento}</td>
+                    <td>${r.data}</td>
+                </tr>`).join('');
+        }
+
+        // Contacts
+        const ctbody = document.getElementById('contacts-tbody');
+        document.getElementById('contact-count').textContent = db.contacts.length + ' registo(s)';
+        if (db.contacts.length === 0) {
+            ctbody.innerHTML = '<tr><td colspan="6" class="db-empty">Nenhuma mensagem ainda.</td></tr>';
+        } else {
+            ctbody.innerHTML = db.contacts.map((r, i) => `
+                <tr>
+                    <td>${i+1}</td>
+                    <td>${r.nome}</td>
+                    <td>${r.email}</td>
+                    <td>${r.assunto}</td>
+                    <td style="max-width:200px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${r.mensagem}</td>
+                    <td>${r.data}</td>
+                </tr>`).join('');
+        }
+    }
+
+    // ── Init ──
+    loadDB();
+</script>
+</body>
+</html>
