@@ -1,16 +1,96 @@
-# React + Vite
+# projeto-servidor
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Academic project developed for the course **Introduction to Web Languages and Technologies** at the **University of Aveiro**.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## About the Project
 
-## React Compiler
+**projeto-servidor** is a web application that simulates a server hosting platform, offering services such as:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Server rental
+- Domain registration
+- Website creation
 
-## Expanding the ESLint configuration
+The project was built as part of a university assignment to apply concepts of modern web development, including frontend interfaces, backend APIs, and database integration.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## Technologies Used
+
+| Layer | Technology |
+|---|---|
+| Frontend | React + Vite |
+| Markup | HTML |
+| Styling | CSS Modules |
+| Logic | JavaScript |
+| Backend / API | Node.js (custom API) |
+| Database | Neon PostgreSQL |
+
+---
+
+## How to Run the Project
+
+### Prerequisites
+
+Make sure you have the following installed on your machine:
+
+- [Node.js](https://nodejs.org/) (v18 or higher)
+- npm (comes with Node.js)
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/Ruggeri95/projeto-servidor.git
+cd projeto-servidor
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Configure environment variables
+
+Create a `.env` file in the root of the project and add your database connection string:
+
+```env
+DATABASE_URL=your_neon_postgres_connection_string
+```
+
+### 4. Start the development server
+
+```bash
+npm run dev
+```
+
+The application will be available at `http://localhost:5173` by default.
+
+### 5. Start the backend API (if applicable)
+
+```bash
+node server/index.js
+```
+
+---
+
+## 📁 Project Structure
+
+```
+projeto-servidor/
+├── public/          # Static assets
+├── src/             # React source code
+├── server/          # Backend API
+├── index.html       # Entry HTML file
+├── vite.config.js   # Vite configuration
+└── package.json     # Project dependencies
+```
+
+---
+
+## 👨‍🎓 Academic Context
+
+- **Course:** Introduction to Web Languages and Technologies
+- **Institution:** University of Aveiro
+- **Degree:** CTeSP / Undergraduate Program
