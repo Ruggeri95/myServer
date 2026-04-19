@@ -15,6 +15,11 @@
             color: #fff;
         }
 
+        .logo{
+            text-decoration: none;
+            color: white;
+        }
+
         .header__nav ul {
             display: flex;
             list-style: none;

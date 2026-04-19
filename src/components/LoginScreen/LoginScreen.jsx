@@ -8,7 +8,7 @@ export default function LoginScreen({ onClose }) {
                     <button className="button" onClick={onClose}>
                         <span className="X"></span>
                         <span className="Y"></span>
-                        <div className="close">Close</div>
+                        <div className="close"></div>
                     </button>
                     <form className="form">
                         <p id="heading">Login</p>

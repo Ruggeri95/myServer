@@ -45,18 +45,51 @@
 },
 {
     "id":4,
-    "nome": "Platinum",
-    "preco": 18.95,
+    "nome": "Email Business Starter",
+    "preco": 2.99,
     "descricao": "Completo para pessoas exigentes",
     "features":[
-        "15 Websites",
-        "50GB de Armazenamento",
-        "Trasnferência ilimitada",
-        "Suporte Ilimitado",
-        "Email personalizado",
-        "Tokens Limitados para agente IA"
+        "1 caixa de correio incluída",
+        "10 GB de armazenamento por caixa de correio",
+        "10 aliases de email",
+        "1000 email/dia por caixa de correio",
+        "Obtenha armazenamento extra a qualquer momento"
     ],
     "destaque":false,
-    "tipo": "servidor"
+    "tipo": "email"
+},
+{
+    "id":5,
+    "nome": "Email Business Premium",
+    "preco": 5.99,
+    "descricao": "",
+    "features":[
+        "5 caixas de correio incluída",
+        "50GB de armazenamento por caixa de correio",
+        "30 aliases de email",
+        "3000 emails/dia por caixa de correio",
+        "Obtenha armazenamento extra a qualquer momento",
+        "Domínio grátis durante um ano"
+    ],
+    "destaque":true,
+    "tipo": "email"
+},
+{
+    "id":6,
+    "nome": "Email Business Platinum",
+    "preco": 6.99,
+    "descricao": "",
+    "features":[
+        "7 caixas de correio incluída",
+        "70GB de armazenamento por caixa de correio",
+        "50 aliases de email",
+        "4500 emails/dia por caixa de correio",
+        "Obtenha armazenamento extra a qualquer momento",
+        "Domínio grátis durante um ano",
+        "Respostas de email inteligentes orientadas por IA",
+        "Resumos de email instantâneos com tecnologia de IA"
+    ],
+    "destaque":false,
+    "tipo":"email"
 }]
 }

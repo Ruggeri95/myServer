@@ -5,6 +5,7 @@ import PlansPages from './pages/PlansPage/PlansPage'
 import ContactPage from './pages/ContactPage/ContactPage'
 import { useState } from 'react'
 import LoginScreen from './components/LoginScreen/LoginScreen'
+import Footer from './components/Footer/Footer'
 
 export default function App() {
   const [showLogin, setShowLogin] = useState(false)
@@ -24,6 +25,8 @@ export default function App() {
       {showLogin && (
         <LoginScreen onClose={() => setShowLogin(false)} />
       )}
+
+      <Footer />
     </BrowserRouter>
   )
 

@@ -5,7 +5,7 @@ import UserLogin from "../UserLogin/UserLogin"
 export default function Header({onLoginClick}) {
     return (
         <div className={styles.header}>
-            <div className={styles['header__logo']}>MyServer</div>
+            <div className={styles['header__logo']}><NavLink className={styles.logo} to="/">MyServer</NavLink></div>
             <nav className={styles['header__nav']}>
                 <ul>
                     <li>

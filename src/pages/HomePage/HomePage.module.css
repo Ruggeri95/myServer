@@ -76,7 +76,7 @@
     font-size: 14px;
 }
 
-div img{
+.feature-card__icon img{
     width: 2em;
     height: 2em;
     filter: invert(1);
