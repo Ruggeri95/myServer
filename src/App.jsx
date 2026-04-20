@@ -11,7 +11,7 @@ export default function App() {
   const [showLogin, setShowLogin] = useState(false)
   
   return (
-    <BrowserRouter>
+    <BrowserRouter basename='/myServer'>
       <Header onLoginClick={() => setShowLogin(prev => !prev)}/>
 
       <Routes>

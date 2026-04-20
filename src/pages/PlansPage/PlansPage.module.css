@@ -1,16 +1,70 @@
 .PlansPage {
+    min-height: 100vh;
+}
+
+.hero {
+    background-color: #05080a;
+    padding: 80px 40px 60px;
+    text-align: center;
+}
+
+.hero__title {
+    font-size: 3em;
+    font-weight: 700;
+    color: white;
+    margin: 0 0 48px 0;
+    line-height: 1.3;
+    letter-spacing: 1px;
+}
+
+.filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+}
+
+.filter-btn {
+    background-color: #1f262c;
+    color: #b5b5b5;
+    border: 1px solid #2e3940;
+    padding: 12px 22px;
+    border-radius: 999px;
+    font-size: 0.95em;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.filter-btn:hover {
+    border-color: #cbe300;
+    color: white;
+}
+
+.filter-btn--active {
+    background-color: #cbe300;
+    color: #0c1014;
+    border-color: #cbe300;
+    font-weight: 700;
+}
+
+.content {
     max-width: 1200px;
-    margin: auto;
+    margin: 0 auto;
     padding: 60px 20px;
 }
 
-.title {
-    text-align: center;
-    font-size: 2.5em;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+.section-title {
+    font-size: 2em;
+    font-weight: 700;
     color: white;
     margin: 0 0 60px 0;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 .plans-grid {
@@ -19,14 +73,38 @@
     gap: 24px;
 }
 
-@media (max-width: 768px) {
-    .plans-grid {
-        grid-template-columns: 1fr; /* 1 por linha */
-    }
+.loading, .erro {
+    text-align: center;
+    padding: 60px;
+    color: #b5b5b5;
 }
+
+
+
+
+
+
 
 @media (max-width: 1024px) {
     .plans-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 por linha */
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero__title {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 600px) {
+    .plans-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding: 60px 20px 40px;
+    }
+
+    .hero__title {
+        font-size: 1.6em;
     }
 }
