@@ -1,0 +1,178 @@
+{
+    "planos": [
+        {
+        "id": 1,
+        "nome": "Essencial",
+        "preco" : 3.95,
+        "descricao": "Ideal para começar",
+        "features": [
+            "1 Website",
+            "1GB de Armazenamento",
+            "10GB de transferência",
+            "SSL gratuito"
+        ],
+        "destaque": false,
+        "tipo": "servidor"
+},
+{
+    "id": 2,
+    "nome": "Premium",
+    "preco": 7.95,
+    "descricao": "Para projetos em crescimento",
+    "features": [
+        "5 Websites",
+        "3GB de Armazenamento",
+        "Trasnferência ilimitada",
+        "10 horas de suporte mensais"
+    ],
+    "destaque":true,
+    "tipo": "servidor"
+},
+{
+    "id": 3,
+    "nome": "Gold",
+    "preco": 13.95,
+    "descricao": "Para empresas exigentes",
+    "features":[
+        "10 Websites",
+        "30GB de Armazenamento",
+        "Trasnferência ilimitada",
+        "30 horas de suporte mensais",
+        "Email personalizado"
+    ],
+    "destaque":false,
+    "tipo": "servidor"
+},
+{
+    "id":4,
+    "nome": "Email Business Starter",
+    "preco": 2.99,
+    "descricao": "Completo para pessoas exigentes",
+    "features":[
+        "1 caixa de correio incluída",
+        "10 GB de armazenamento por caixa de correio",
+        "10 aliases de email",
+        "1000 email/dia por caixa de correio",
+        "Obtenha armazenamento extra a qualquer momento"
+    ],
+    "destaque":false,
+    "tipo": "email"
+},
+{
+    "id":5,
+    "nome": "Email Business Premium",
+    "preco": 5.99,
+    "descricao": "",
+    "features":[
+        "5 caixas de correio incluída",
+        "50GB de armazenamento por caixa de correio",
+        "30 aliases de email",
+        "3000 emails/dia por caixa de correio",
+        "Obtenha armazenamento extra a qualquer momento",
+        "Domínio grátis durante um ano"
+    ],
+    "destaque":true,
+    "tipo": "email"
+},
+{
+    "id":6,
+    "nome": "Email Business Platinum",
+    "preco": 6.99,
+    "descricao": "",
+    "features":[
+        "7 caixas de correio incluída",
+        "70GB de armazenamento por caixa de correio",
+        "50 aliases de email",
+        "4500 emails/dia por caixa de correio",
+        "Obtenha armazenamento extra a qualquer momento",
+        "Domínio grátis durante um ano",
+        "Respostas de email inteligentes orientadas por IA",
+        "Resumos de email instantâneos com tecnologia de IA"
+    ],
+    "destaque":false,
+    "tipo":"email"
+},
+{
+    "id":7,
+    "nome": "Game Recruta",
+    "preco": 9.99,
+    "descricao": "",
+    "features":[
+        "Espaço para 12 jogadores",
+        "Processamento padrão",
+        "Até 36GB RAM",
+        "Backups automatizados do servidor",
+        "Suporte via ticket (prazo de 24h)"
+    ],
+    "destaque":false,
+    "tipo":"jogo"
+},
+{
+    "id":8,
+    "nome": "Game Guardião",
+    "preco": 15.99,
+    "descricao": "",
+    "features":[
+        "Espaço para 24 jogadores",
+        "txAdim disponível",
+        "Processamento padrão",
+        "RAM ilimitada",
+        "Suporte prioritário via Chat ou Discord",
+        "Subdomínio personalizado"
+    ],
+    "destaque":true,
+    "tipo": "jogo"
+},
+{
+    "id":9,
+    "nome": "Game Lendário",
+    "preco": 22.99,
+    "descricao": "",
+    "features":[
+        "Espaço para 48 jogadores",
+        "txAdim disponível",
+        "CPU de alta frequência dedicada (threads exclusivas)",
+        "RAM ilimitada",
+        "Suporte VIP 24/7 com gerente de conta",
+        "IP dedicado",
+        "Banco de dados (MySQL/PostgreSQL) incluso"
+    ],
+    "destaque":false,
+    "tipo": "jogo"
+},
+{
+    "id":10,
+    "nome": "Site Premium",
+    "preco": 11.99,
+    "descricao":"",
+    "features":[
+        "Crie até 3 sites",
+        "20GB de armazenamento para os seus ficheiros (SSD)",
+        "2 caixas de correio por site - grátis durante um ano",
+        "Domínio grátis durante um ano",
+        "Sites WordPress mantidos para si",
+        "Construtor de sites do tipo \"arrastar e largar\""
+    ],
+    "destaque": false,
+    "tipo":"site"
+},
+{
+    "id":11,
+    "nome": "Site Business",
+    "preco": 18.99,
+    "descricao":"",
+    "features":[
+        "Crie 50 sites",
+        "50GB de armazenamento para os seus ficheiros (SSD)",
+        "5 caixas de correio por site - grátis durante um ano",
+        "Venda até 1000 produtos e gerencie a sua loja facilmente",
+        "Sites WordPress mantidos para si",
+        "Construtor de sites do tipo \"arrastar e largar\"",
+        "Acompanhe o desempenho com análise ao vivo",
+        "Checkout integrado (Cartão, MBWay)",
+        "Atendimento prioritário via Whatsapp"
+    ],
+    "destaque": true,
+    "tipo":"site"
+}]
+}
