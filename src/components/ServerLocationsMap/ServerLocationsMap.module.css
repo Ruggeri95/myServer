@@ -1,0 +1,209 @@
+.mapWrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 60px;
+    position: relative;
+}
+
+.title {
+    text-align: center;
+    font-size: 1.8em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0 0 10px 0;
+    color: white;
+}
+
+.subtitle {
+    font-size: 1em;
+    color: #b5b5b5;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+}
+
+.mapContainer {
+    width: 100%;
+    height: 500px;
+    border-radius: 10px;
+    /* Igual às divs da página de contato */
+    overflow: hidden;
+    position: relative;
+}
+
+.leafletMap {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: #090c10;
+}
+
+/* Customizações de classe para o Leaflet Icon */
+.customLeafletIcon {
+    background: transparent;
+    border: none;
+}
+
+.markerPoint {
+    width: 12px;
+    height: 12px;
+    background-color: #00ff88;
+    border: 2px solid #0d1117;
+    border-radius: 50%;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    z-index: 2;
+    transition: all 0.2s ease-in-out;
+}
+
+.customLeafletIcon:hover .markerPoint {
+    background-color: #ffffff;
+    transform: scale(1.2);
+}
+
+.markerPulse {
+    width: 28px;
+    height: 28px;
+    background-color: #00ff88;
+    border-radius: 50%;
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    opacity: 0.3;
+    z-index: 1;
+    animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+    transform-origin: center;
+    pointer-events: none;
+}
+
+.tooltipWrapper {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    pointer-events: none;
+    animation: fadeIn 0.2s ease;
+}
+
+.tooltip {
+    background: rgba(13, 17, 23, 0.9);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 255, 136, 0.3);
+    border-radius: 12px;
+    padding: 1.2rem;
+    min-width: 200px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(0, 255, 136, 0.1);
+}
+
+.tooltipHeader {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.6rem;
+    margin-bottom: 0.6rem;
+}
+
+.serverName {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.serverCountry {
+    font-size: 0.85rem;
+    color: #8b949e;
+    margin-top: 0.2rem;
+}
+
+.pingContainer {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.pingLabel {
+    font-size: 0.85rem;
+    color: #8b949e;
+}
+
+.pingValue {
+    font-family: monospace;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #00ff88;
+}
+
+.pingDot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-left: auto;
+    box-shadow: 0 0 8px currentColor;
+}
+
+.pulsing {
+    opacity: 0.5;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.4;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.4;
+    }
+}
+
+@keyframes pulse-ring {
+    0% {
+        transform: scale(0.5);
+        opacity: 0.8;
+    }
+
+    70% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 2rem;
+    }
+
+    .tooltipWrapper {
+        top: 10px;
+        right: 10px;
+        left: 10px;
+    }
+
+    .tooltip {
+        width: auto;
+    }
+}
