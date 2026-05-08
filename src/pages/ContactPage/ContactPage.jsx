@@ -1,9 +1,5 @@
 import style from './ContactPage.module.css'
-import alemanha from '../../assets/img/alemanha.jpg'
-import brasil from '../../assets/img/brasil.jpg'
-import australia from '../../assets/img/australia.jpg'
-import canada from '../../assets/img/canada.jpg'
-
+import ServerLocationsMap from '../../components/ServerLocationsMap/ServerLocationsMap'
 export default function ContactPage() {
     return (
         <div className={style.ContactPage}>
@@ -65,31 +61,7 @@ export default function ContactPage() {
                     <button type="submit" className={style['form-btn']}>Enviar Mensagem</button>
                 </form>
             </div>
-            <div className={style['location-office']}>
-                <h2 className={style['location-office__title']}>Localização dos nossos escritórios</h2>
-                <div className={style['location-office__grid']}>
-                    <div className={style['location-office__city']}>
-                        <img src={alemanha} alt="Office Alemanha" />
-                        <h3>Frankfurt, Alemanha</h3>
-                        <p>Mainzer Landstraße 181, 60327</p>
-                    </div>
-                    <div className={style['location-office__city']}>
-                        <img src={brasil} alt="Office Brasil" />
-                        <h3>São Paulo, Brasil</h3>
-                        <p>Avenida Paulista 4500, 04538-133</p>
-                    </div>
-                    <div className={style['location-office__city']}>
-                        <img src={canada} alt="Office Canadá" />
-                        <h3>Toronto, Canadá</h3>
-                        <p>Bay Street 161, M5J 2S1</p>
-                    </div>
-                    <div className={style['location-office__city']}>
-                        <img src={australia} alt="Office Austrália" />
-                        <h3>Melbourne, Austrália</h3>
-                        <p>Collins Street 530, VIC 3000</p>
-                    </div>
-                </div>
-            </div>
+            <ServerLocationsMap />
         </div>
     )
 }

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import PricingCard from '../../components/PricingCard/PricingCard'
+import FakeCheckout from '../../components/FakeCheckout/FakeCheckout'
 import style from './PlansPage.module.css'
 import {Globe, Mail, Gamepad2,Computer,Search} from 'lucide-react'
 
@@ -16,6 +17,7 @@ export default function PlansPage() {
     const [filtro, setFiltro] = useState('todos')
     const [loading, setLoading] = useState(true)
     const [erro, setErro] = useState(null)
+    const [selectedPlan, setSelectedPlan] = useState(null)
 
     useEffect(() => {
         fetch(import.meta.env.BASE_URL + 'dados.json')
@@ -39,6 +41,13 @@ export default function PlansPage() {
 
     return (
         <div className={style.PlansPage}>
+            {selectedPlan && (
+                <FakeCheckout 
+                    plano={selectedPlan} 
+                    onClose={() => setSelectedPlan(null)} 
+                />
+            )}
+
             <div className={style.hero}>
                 <h1 className={style.hero__title}>
                     Lance online: planos e<br />serviços acessíveis
@@ -64,12 +73,14 @@ export default function PlansPage() {
 
                 <div className={style['plans-grid']}>
                     {planosFiltrados.map(plano => (
-                        <PricingCard key={plano.id} plano={plano} />
+                        <PricingCard 
+                            key={plano.id} 
+                            plano={plano} 
+                            onSelect={(p) => setSelectedPlan(p)}
+                        />
                     ))}
                 </div>
             </div>
-
-            
         </div>
     )
 }

@@ -1,9 +1,7 @@
 import style from './PricingCard.module.css'
 import { useNavigate } from 'react-router-dom'
 
-export default function PricingCard({ plano }) {
-    const navigate = useNavigate()
-
+export default function PricingCard({ plano, onSelect }) {
     return (
         <div className={`${style['pricing-card']} ${plano.destaque ? style['pricing-card--destaque'] : ''}`}>
             {plano.destaque && (
@@ -22,7 +20,7 @@ export default function PricingCard({ plano }) {
             </ul>
             <button
                 className={style['pricing-card__cta']}
-                onClick={() => navigate('/signup', { state: { plano } })}
+                onClick={() => onSelect(plano)}
             >
                 Assinar Já
             </button>
